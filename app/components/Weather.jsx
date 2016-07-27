@@ -20,7 +20,7 @@ var Weather=React.createClass({
                     temp:temp,
                     isLoading:false
                   })
-            },1000)
+            },300)
            },function(errorMessage){
              that.setState({city:null, temp:null, isLoading:false});
                 alert(errorMessage);
@@ -34,14 +34,14 @@ var Weather=React.createClass({
         function readerMessage(){
               console.log("Inside Render Message, isLoading: "+ isLoading + ", city: " + city + ", temp: " + temp);
                     if(isLoading){
-                      return <h3>Fetching Data</h3>;
+                      return <h3 className="text-center">Fetching Data</h3>;
                     }else if(city && temp){
                        return <WeatherMessage temp={temp} city={city} />
                     }
         }
         return(
                <div>
-                 <h3>Weather Component</h3>
+                 <h3 className="text-center">Weather Component</h3>
                  <WeatherForm onCityEntered={this.handleNewCity}/>
                  {readerMessage()}
               </div>
